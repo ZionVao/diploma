@@ -20,7 +20,7 @@
     padding: 0;
 
     &::before {
-      content: "";
+      // content: "";
       position: absolute;
       left: 0;
       top: 10px;
@@ -60,7 +60,7 @@
       @include radius(50%);
       @include transform(translateY(-50%));
 
-      content: "";
+      // content: "";
       background: #fdfdfd;
       border: 2px solid #efefef;
       left: -4px;

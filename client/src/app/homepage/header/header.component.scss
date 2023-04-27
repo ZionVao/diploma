@@ -281,7 +281,7 @@ header {
     }
 
     &::after {
-      content: "";
+      // content: "";
       display: block;
       background: #246081;
       height: 2px;
@@ -334,7 +334,7 @@ header {
   span,
   &::after,
   &::before {
-    content: "";
+    // content: "";
     background: #fff;
     display: block;
     height: 2px;

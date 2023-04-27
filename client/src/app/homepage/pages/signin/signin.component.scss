@@ -1,0 +1,19 @@
+
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css');
+@import 'src/scss/utils.scss';
+@import 'src/scss/variables.scss';
+
+.btn-primary {
+  border: 2px solid $red-color;
+  color: $red-color;
+  padding: 12px 20px;
+  display: inline-block;
+
+  &:hover {
+    color: #0894e2;
+    border-color: #0894e2;
+  }
+}
+
+
+
