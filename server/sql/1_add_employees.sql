@@ -1,5 +1,5 @@
 INSERT INTO employees (first_name, last_name, date_of_birth, email, identification_number, address, phone_number, avatar_url, password)
-VALUES ('Alice', 'Smith', '1985-06-10', 'alice.smith@example.com', 'ID001', '123 Main St', '555-1234', 'https://www.w3schools.com/howto/img_avatar2.png', 'ID001', 'ID001'),
+VALUES ('Alice', 'Smith', '1985-06-10', 'alice.smith@example.com', 'ID001', '123 Main St', '555-1234', 'https://www.w3schools.com/howto/img_avatar2.png', 'ID001'),
        ('Bob', 'Johnson', '1990-02-14', 'bob.johnson@example.com', 'ID002', '456 Elm St', '555-5678', 'https://www.w3schools.com/howto/img_avatar2.png', 'ID001'),
        ('Charlie', 'Lee', '1988-08-22', 'charlie.lee@example.com', 'ID003', '789 Oak Ave', '555-9012', 'https://www.w3schools.com/howto/img_avatar2.png', 'ID001'),
        ('David', 'Davis', '1976-04-01', 'david.davis@example.com', 'ID004', '246 Maple St', '555-3456', 'https://www.w3schools.com/howto/img_avatar2.png', 'ID001'),

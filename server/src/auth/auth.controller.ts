@@ -22,7 +22,7 @@ export class AuthController {
   @Post('login')
   @Public()
   signIn(@Body() signInDto: SignInDto) {
-    return this.authService.signIn(signInDto.username, signInDto.password);
+    return this.authService.signIn(signInDto.email, signInDto.password);
   }
 
   @ApiBearerAuth()

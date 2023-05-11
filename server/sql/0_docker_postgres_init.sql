@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS departments (
     id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
     title VARCHAR(30) NOT NULL UNIQUE,
     description TEXT,
-    root_department_id UUID,
+    root_department_id UUID NULL,
     CONSTRAINT fk_root_department_id FOREIGN KEY (root_department_id) REFERENCES departments (id) ON DELETE SET NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS departments (
 CREATE TABLE IF NOT EXISTS job_positions (
     id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
     title VARCHAR(30) NOT NULL,
-    department_id UUID NOT NULL,
+    department_id UUID NULL,
     CONSTRAINT fk_department_id FOREIGN KEY (department_id) REFERENCES departments (id),
     description TEXT,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -54,9 +54,11 @@ CREATE TABLE IF NOT EXISTS roles (
     updated_at TIMESTAMP
 );
 
+CREATE TYPE role AS ENUM ('admin', 'manager', 'supervisor', 'user');
+
 CREATE TABLE IF NOT EXISTS assigned_roles (
     employee_id UUID NOT NULL,
-    role_id UUID NOT NULL,
+    roles role[] DEFAULT ARRAY['user']::role[],
     CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES employees (id),
     CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES roles (id),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -98,14 +100,19 @@ CREATE TABLE IF NOT EXISTS assigned_days_off (
     updated_at TIMESTAMP
 );
 
+
+CREATE TYPE status AS ENUM ('pending', 'approved', 'denied');
+
 CREATE TABLE IF NOT EXISTS requested_days_off (
     id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
     employee_id UUID NOT NULL,
-    CONSTRAINT employee_id FOREIGN KEY (employee_id) REFERENCES employees (id),
+    type_id UUID NOT NULL,
+    CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES employees (id),
+    CONSTRAINT fk_type_id FOREIGN KEY (type_id) REFERENCES days_off_types (id),
     start_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     end_time TIMESTAMP,
     description TEXT,
-    is_active BOOLEAN DEFAULT TRUE,
+    status denied DEFAULT 'pending',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP
 );
