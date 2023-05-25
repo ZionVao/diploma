@@ -23,6 +23,23 @@ import {
   PerfectScrollbarConfigInterface,
   PerfectScrollbarModule,
 } from 'ngx-perfect-scrollbar';
+import { NgxPaginationModule } from 'ngx-pagination';
+
+import { MatInputModule } from '@angular/material/input';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatCardModule } from '@angular/material/card';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatIconModule } from '@angular/material/icon';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDividerModule } from '@angular/material/divider';
+
+import { EmployeesComponent } from './homepage/pages/employees/employees.component';
+import { EmployeeListComponent } from './homepage/pages/employee-list/employee-list.component';
+import { EmployeeCardComponent } from './homepage/pages/employee-list/employee-card/employee-card.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -40,6 +57,9 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     BasePageComponent,
     SocialWrapperComponent,
     SigninComponent,
+    EmployeesComponent,
+    EmployeeListComponent,
+    EmployeeCardComponent,
   ],
   providers: [
     {
@@ -60,7 +80,19 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    PerfectScrollbarModule,
+    // PerfectScrollbarModule,
+    NgxPaginationModule,
+    MatInputModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatIconModule,
+    MatFormFieldModule,
+    MatDividerModule,
   ],
 })
 export class AppModule {}

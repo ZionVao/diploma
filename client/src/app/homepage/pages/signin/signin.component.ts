@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs';
-import { AlertService } from 'src/app/shared/services/alert/alert.service';
-import { AuthService } from 'src/app/shared/services/auth/auth.service';
+import { AlertService } from '../../../shared/services/alert/alert.service';
+import { AuthService } from '../../../shared/services/auth/auth.service';
 
 @Component({
   selector: 'app-signin',

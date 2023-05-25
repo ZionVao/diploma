@@ -11,6 +11,11 @@ services:
       PGDATA: /var/lib/postgresql/data
     volumes:
       - ./data:/var/lib/postgresql/data
-      - ./sql/docker_postgres_init.sql:/docker-entrypoint-initdb.d/docker_postgres_init.sql
+      - ./sql/0_docker_postgres_init.sql:/docker-entrypoint-initdb.d/0_docker_postgres_init.sql
+
+    # volumes:
+    #   - ./data:/var/lib/postgresql/data
+    #   - ./sql/init_database.sh:/init_database.sh
+    # command: ["/bin/bash", "/init_database.sh"]
     ports:
       - "5408:5432"

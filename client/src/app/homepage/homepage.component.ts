@@ -25,11 +25,11 @@ import { BasePageComponent } from './pages/page/page.component';
 })
 export class HomepageComponent implements OnInit, OnDestroy, AfterViewInit {
   isSidebarOpened = true;
-  previousWidth: number | undefined;
-  contentRef: HTMLElement | undefined;
-  isMarkupReady: boolean | undefined;
+  previousWidth: number;
+  contentRef: HTMLElement;
+  isMarkupReady: boolean;
 
-  private scrollSubscription: Subscription | undefined;
+  private scrollSubscription: Subscription;
   private readonly scrollDebounceTime = 100;
 
   constructor(
