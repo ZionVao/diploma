@@ -12,108 +12,82 @@ interface sidebarMenu {
 @Component({
   selector: 'app-full',
   templateUrl: './full.component.html',
-  styleUrls: ['./full.component.scss']
+  styleUrls: ['./full.component.scss'],
 })
 export class FullComponent {
-
   search: boolean = false;
 
-  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+  isHandset$: Observable<boolean> = this.breakpointObserver
+    .observe(Breakpoints.Handset)
     .pipe(
-      map(result => result.matches),
+      map((result) => result.matches),
       shareReplay()
     );
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver) {}
 
-  routerActive: string = "activelink";
+  routerActive: string = 'activelink';
 
   sidebarMenu: sidebarMenu[] = [
     {
-      link: "/home",
-      icon: "home",
-      menu: "Dashboard",
+      link: '/home',
+      icon: 'home',
+      menu: 'Dashboard',
     },
     {
-      link: "/button",
-      icon: "disc",
-      menu: "Buttons",
+      link: '/calendar',
+      icon: 'calendar',
+      menu: 'Calendar',
     },
     {
-      link: "/forms",
-      icon: "layout",
-      menu: "Forms",
+      link: '/company',
+      icon: 'briefcase',
+      menu: 'Company',
     },
     {
-      link: "/alerts",
-      icon: "info",
-      menu: "Alerts",
+      link: '/company/employees',
+      icon: 'users',
+      menu: 'Employees',
     },
     {
-      link: "/grid-list",
-      icon: "file-text",
-      menu: "Grid List",
+      link: '/company/tree',
+      icon: 'git-commit',
+      menu: 'Tree',
     },
     {
-      link: "/menu",
-      icon: "menu",
-      menu: "Menus",
+      link: '/okr',
+      icon: 'compass',
+      menu: 'OKR',
     },
     {
-      link: "/table",
-      icon: "grid",
-      menu: "Tables",
+      link: '/vacations-and-requests',
+      icon: 'coffee',
+      menu: 'Vacations and Requests',
     },
     {
-      link: "/expansion",
-      icon: "divide-circle",
-      menu: "Expansion Panel",
+      link: '/time-tracking',
+      icon: 'watch',
+      menu: 'Time Tracking',
     },
     {
-      link: "/chips",
-      icon: "award",
-      menu: "Chips",
+      link: '/events',
+      icon: 'star',
+      menu: 'Events',
     },
     {
-      link: "/tabs",
-      icon: "list",
-      menu: "Tabs",
+      link: '/recruitment',
+      icon: 'search',
+      menu: 'Recruitment',
     },
     {
-      link: "/progress",
-      icon: "bar-chart-2",
-      menu: "Progress Bar",
+      link: '/profile',
+      icon: 'user',
+      menu: 'Profile',
     },
     {
-      link: "/toolbar",
-      icon: "voicemail",
-      menu: "Toolbar",
+      link: '/todo',
+      icon: 'clipboard',
+      menu: 'TODO',
     },
-    {
-      link: "/progress-snipper",
-      icon: "loader",
-      menu: "Progress Snipper",
-    },
-    {
-      link: "/tooltip",
-      icon: "bell",
-      menu: "Tooltip",
-    },
-    {
-      link: "/snackbar",
-      icon: "slack",
-      menu: "Snackbar",
-    },
-    {
-      link: "/slider",
-      icon: "sliders",
-      menu: "Slider",
-    },
-    {
-      link: "/slide-toggle",
-      icon: "layers",
-      menu: "Slide Toggle",
-    },
-  ]
-
+  ];
 }
