@@ -13,9 +13,15 @@ import { FlexyModule } from './flexy.module';
 import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './pages/calendar/calendar.component';
+import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
 
 @NgModule({
-  declarations: [AppComponent, FullComponent, CalendarComponent],
+  declarations: [
+    AppComponent,
+    FullComponent,
+    CalendarComponent,
+    EmployeeListComponent,
+  ],
   imports: [
     CommonModule,
     BrowserModule,

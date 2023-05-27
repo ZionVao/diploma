@@ -1,0 +1,34 @@
+mat-card {
+  width: 300px;
+  margin: 10px;
+  height: 15rem;
+}
+
+mat-card-title {
+  line-height: 1.6rem;
+  font-size: 18px;
+  font-weight: 500;
+  color: #2a3547;
+}
+
+mat-card-content {
+  padding-top: 10px;
+}
+
+mat-paginator {
+  margin-top: 20px;
+}
+
+.mat-mdc-card-avatar {
+  height: 100px;
+  width: auto;
+  display: flex;
+  justify-content: center;
+}
+.mat-mdc-card-subtitle {
+  font-size: 12px !important;
+}
+
+.mat-mdc-card-header-text {
+  width: auto;
+}

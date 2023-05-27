@@ -1,0 +1,50 @@
+<h1>Employees</h1>
+
+<mat-form-field>
+  <input
+    matInput
+    [(ngModel)]="searchQuery"
+    (input)="filterEmployees()"
+    placeholder="Search by name"
+  />
+</mat-form-field>
+
+<mat-grid-list cols="3" rowHeight="300px">
+  <mat-grid-tile
+    *ngFor="
+      let employee of filteredEmployees
+        | slice : (currentPage - 1) * pageSize : currentPage * pageSize
+    "
+  >
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>{{ employee.name }}</mat-card-title>
+        <mat-card-subtitle>Web Designer</mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
+      <mat-card-content>
+        <div mat-card-avatar>
+          <img
+            width="100"
+            mat-card-image
+            [src]="employee.photoUrl"
+            alt="Employee Photo"
+          />
+        </div>
+        <div>
+          <p>ID: {{ employee.id }}</p>
+          <p>Email: {{ employee.email }}</p>
+
+          <!-- Add more employee information as desired -->
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
+
+<mat-paginator
+  [pageSize]="pageSize"
+  [pageIndex]="currentPage - 1"
+  [length]="filteredEmployees.length"
+  (page)="onPageChange($event)"
+></mat-paginator>
