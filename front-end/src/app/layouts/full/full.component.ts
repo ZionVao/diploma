@@ -45,12 +45,12 @@ export class FullComponent {
       menu: 'Company',
     },
     {
-      link: '/company/employees',
+      link: '/employees',
       icon: 'users',
       menu: 'Employees',
     },
     {
-      link: '/company/tree',
+      link: '/company-tree',
       icon: 'git-commit',
       menu: 'Tree',
     },

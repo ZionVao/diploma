@@ -11,7 +11,10 @@ const routes: Routes = [
     component: FullComponent,
     children: [
       { path: 'calendar', component: CalendarComponent },
-      { path: 'company/employees', component: EmployeeListComponent },
+      {
+        path: 'employees',
+        component: EmployeeListComponent,
+      },
     ],
   },
 ];
