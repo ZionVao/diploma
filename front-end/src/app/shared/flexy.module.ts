@@ -44,6 +44,7 @@ import { PlatformModule } from '@angular/cdk/platform';
 import { ObserversModule } from '@angular/cdk/observers';
 import { PortalModule } from '@angular/cdk/portal';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { ScrollingModule } from '@angular/cdk/scrolling';
 
 @NgModule({
   exports: [
@@ -83,6 +84,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatNativeDateModule,
     DragDropModule,
     CdkTableModule,
+    ScrollingModule,
     A11yModule,
     BidiModule,
     CdkAccordionModule,

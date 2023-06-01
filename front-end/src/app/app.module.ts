@@ -16,6 +16,10 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
 import { TaskboardComponent } from './pages/taskboard/taskboard.component';
 import { FilterByStatusPipe } from './pages/taskboard/filter-by-status.pipe';
+import { WorkerDaysOffComponent } from './pages/worker-days-off/worker-days-off.component';
+import { FilterMonthPipe } from './pages/worker-days-off/filter-month.pipe';
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 @NgModule({
   declarations: [
@@ -25,6 +29,8 @@ import { FilterByStatusPipe } from './pages/taskboard/filter-by-status.pipe';
     EmployeeListComponent,
     TaskboardComponent,
     FilterByStatusPipe,
+    WorkerDaysOffComponent,
+    FilterMonthPipe,
   ],
   imports: [
     CommonModule,
@@ -35,6 +41,7 @@ import { FilterByStatusPipe } from './pages/taskboard/filter-by-status.pipe';
     FlexyModule,
     FormsModule,
     FullCalendarModule,
+    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
   ],
   providers: [],
   bootstrap: [AppComponent],

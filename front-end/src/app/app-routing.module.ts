@@ -5,6 +5,7 @@ import { FullComponent } from './layouts/full/full.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
 import { TaskboardComponent } from './pages/taskboard/taskboard.component';
+import { WorkerDaysOffComponent } from './pages/worker-days-off/worker-days-off.component';
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
         path: 'todo',
         component: TaskboardComponent,
       },
+      { path: 'vacations-and-requests', component: WorkerDaysOffComponent },
     ],
   },
 ];

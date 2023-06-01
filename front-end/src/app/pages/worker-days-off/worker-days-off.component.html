@@ -1,0 +1,24 @@
+<div class="scheduler-container">
+  <mat-table [dataSource]="employees" class="scheduler">
+    <!-- Employee Name Column -->
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef>Employee Name</mat-header-cell>
+      <mat-cell *matCellDef="let employee">{{ employee.name }}</mat-cell>
+    </ng-container>
+
+    <!-- Days Off Columns -->
+    <ng-container *ngFor="let day of allDaysInMonth" [matColumnDef]="day">
+      <mat-header-cell *matHeaderCellDef>{{ day }}</mat-header-cell>
+      <mat-cell
+        *matCellDef="let employee"
+        [ngClass]="{ 'day-off': isDayOff(employee, day) }"
+      >
+        <mat-icon *ngIf="isDayOff(employee, day)">event_busy</mat-icon>
+      </mat-cell>
+    </ng-container>
+
+    <!-- Table Rows -->
+    <mat-header-row *matHeaderRowDef="schedulerColumns"></mat-header-row>
+    <mat-row *matRowDef="let employee; columns: schedulerColumns"></mat-row>
+  </mat-table>
+</div>

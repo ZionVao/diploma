@@ -1,0 +1,31 @@
+.scheduler-container {
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+.scheduler {
+  width: fit-content;
+  white-space: nowrap;
+}
+
+.day-off {
+  background-color: red;
+  color: white;
+}
+
+/* Optional: Customize scrollbar styles */
+.scheduler-container::-webkit-scrollbar {
+  width: 8px;
+}
+
+.scheduler-container::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+.scheduler-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+}
+
+.scheduler-container::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
