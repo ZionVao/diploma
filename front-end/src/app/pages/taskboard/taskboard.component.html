@@ -1,0 +1,60 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Kanban Task Board</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card>
+  <mat-card-content class="board">
+    <div class="board-container">
+      <h2>To do</h2>
+
+      <div
+        cdkDropList
+        #todoList="cdkDropList"
+        [cdkDropListData]="todoTasks"
+        [cdkDropListConnectedTo]="[inProgressList, doneList]"
+        class="board-list"
+        (cdkDropListDropped)="onDrop($event)"
+      >
+        <div class="board-box" *ngFor="let item of todoTasks" cdkDrag>
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
+
+    <div class="board-container">
+      <h2>In Progress</h2>
+
+      <div
+        cdkDropList
+        #inProgressList="cdkDropList"
+        [cdkDropListData]="inProgressTasks"
+        [cdkDropListConnectedTo]="[todoList, doneList]"
+        class="board-list"
+        (cdkDropListDropped)="onDrop($event)"
+      >
+        <div class="board-box" *ngFor="let item of inProgressTasks" cdkDrag>
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
+
+    <div class="board-container">
+      <h2>Done</h2>
+
+      <div
+        cdkDropList
+        #doneList="cdkDropList"
+        [cdkDropListData]="doneTasks"
+        [cdkDropListConnectedTo]="[todoList, inProgressList]"
+        class="board-list"
+        (cdkDropListDropped)="onDrop($event)"
+      >
+        <div class="board-box" *ngFor="let item of doneTasks" cdkDrag>
+          {{ item.name }}
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { FullComponent } from './layouts/full/full.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
+import { TaskboardComponent } from './pages/taskboard/taskboard.component';
 
 const routes: Routes = [
   {
@@ -14,6 +15,10 @@ const routes: Routes = [
       {
         path: 'employees',
         component: EmployeeListComponent,
+      },
+      {
+        path: 'todo',
+        component: TaskboardComponent,
       },
     ],
   },

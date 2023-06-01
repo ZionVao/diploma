@@ -9,11 +9,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FullComponent } from './layouts/full/full.component';
 
-import { FlexyModule } from './flexy.module';
+import { FlexyModule } from './shared/flexy.module';
 import { CommonModule } from '@angular/common';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
+import { TaskboardComponent } from './pages/taskboard/taskboard.component';
+import { FilterByStatusPipe } from './pages/taskboard/filter-by-status.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { EmployeeListComponent } from './pages/employee-list/employee-list.compo
     FullComponent,
     CalendarComponent,
     EmployeeListComponent,
+    TaskboardComponent,
+    FilterByStatusPipe,
   ],
   imports: [
     CommonModule,
