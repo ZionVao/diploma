@@ -1,0 +1,84 @@
+<!-- goal-setting.component.html -->
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>Set Goals</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="goalForm" (ngSubmit)="submitForm()">
+      <mat-form-field appearance="fill">
+        <mat-label>Goal Title</mat-label>
+        <input matInput formControlName="title" required />
+        <mat-error
+          *ngIf="
+            goalForm.get('title')?.invalid && goalForm.get('title')?.touched
+          "
+        >
+          Please enter a goal title.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" required></textarea>
+        <mat-error
+          *ngIf="
+            goalForm.get('description')?.invalid &&
+            goalForm.get('description')?.touched
+          "
+        >
+          Please enter a description.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Due Date</mat-label>
+        <input
+          matInput
+          [matDatepicker]="dueDatepicker"
+          formControlName="dueDate"
+          required
+        />
+        <mat-datepicker-toggle
+          matSuffix
+          [for]="dueDatepicker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #dueDatepicker></mat-datepicker>
+        <mat-error
+          *ngIf="
+            goalForm.get('dueDate')?.invalid && goalForm.get('dueDate')?.touched
+          "
+        >
+          Please select a due date.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Priority</mat-label>
+        <mat-select formControlName="priority" required>
+          <mat-option value="low">Low</mat-option>
+          <mat-option value="medium">Medium</mat-option>
+          <mat-option value="high">High</mat-option>
+        </mat-select>
+        <mat-error
+          *ngIf="
+            goalForm.get('priority')?.invalid &&
+            goalForm.get('priority')?.touched
+          "
+        >
+          Please select a priority level.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-checkbox formControlName="notify">Notify Team</mat-checkbox>
+
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="goalForm.invalid"
+      >
+        Save Goal
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>

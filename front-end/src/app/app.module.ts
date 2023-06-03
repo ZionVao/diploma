@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FeatherModule } from 'angular-feather';
 import { allIcons } from 'angular-feather/icons';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -20,6 +20,8 @@ import { WorkerDaysOffComponent } from './pages/worker-days-off/worker-days-off.
 import { FilterMonthPipe } from './pages/worker-days-off/filter-month.pipe';
 import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { GoalSettingComponent } from './pages/goal-setting/goal-setting.component';
+import { RecruitmentComponent } from './pages/recruitment/recruitment.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     FilterByStatusPipe,
     WorkerDaysOffComponent,
     FilterMonthPipe,
+    GoalSettingComponent,
+    RecruitmentComponent,
   ],
   imports: [
     CommonModule,
@@ -41,7 +45,11 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
     FlexyModule,
     FormsModule,
     FullCalendarModule,
-    CalendarModule.forRoot({ provide: DateAdapter, useFactory: adapterFactory }),
+    ReactiveFormsModule,
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory,
+    }),
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,59 @@
+<!-- recruitment.component.html -->
+<mat-card>
+  <mat-card-title>Job Openings</mat-card-title>
+  <mat-card-content>
+    <div *ngFor="let job of jobOpenings">
+      <h3>{{ job.title }}</h3>
+      <p>{{ job.description }}</p>
+      <p>Location: {{ job.location }}</p>
+      <button mat-raised-button color="primary" (click)="applyJob(job.id)">
+        Apply
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="showApplicationForm">
+  <mat-card-title>Job Application</mat-card-title>
+  <mat-card-content>
+    <form (ngSubmit)="submitApplication()">
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Full Name"
+          [(ngModel)]="application.fullName"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Email"
+          [(ngModel)]="application.email"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea
+          matInput
+          placeholder="Cover Letter"
+          [(ngModel)]="application.coverLetter"
+          required
+        ></textarea>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input
+          matInput
+          placeholder="Resume URL"
+          [(ngModel)]="application.resumeUrl"
+          required
+        />
+      </mat-form-field>
+
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

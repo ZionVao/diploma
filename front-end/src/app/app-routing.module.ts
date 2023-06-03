@@ -6,6 +6,8 @@ import { CalendarComponent } from './pages/calendar/calendar.component';
 import { EmployeeListComponent } from './pages/employee-list/employee-list.component';
 import { TaskboardComponent } from './pages/taskboard/taskboard.component';
 import { WorkerDaysOffComponent } from './pages/worker-days-off/worker-days-off.component';
+import { GoalSettingComponent } from './pages/goal-setting/goal-setting.component';
+import { RecruitmentComponent } from './pages/recruitment/recruitment.component';
 
 const routes: Routes = [
   {
@@ -22,6 +24,8 @@ const routes: Routes = [
         component: TaskboardComponent,
       },
       { path: 'vacations-and-requests', component: WorkerDaysOffComponent },
+      { path: 'okr', component: GoalSettingComponent },
+      { path: 'recruitment', component: RecruitmentComponent },
     ],
   },
 ];
