@@ -1,0 +1,101 @@
+<div class="container">
+  <div class="left-column">
+    <div class="image-section">
+      <!-- Display employee image here -->
+      <mat-card class="avatar-card">
+        <img
+          class="avatar-image"
+          [src]="employee.imageUrl"
+          alt="Employee Image"
+        />
+      </mat-card>
+    </div>
+
+    <div class="navigation">
+      <mat-nav-list>
+        <!-- Navigation links for different information categories -->
+        <a
+          mat-list-item
+          (click)="navigateTo('personal')"
+          [ngClass]="{ active: selectedCategory === 'personal' }"
+          >Personal Data</a
+        >
+        <a
+          mat-list-item
+          (click)="navigateTo('contact')"
+          [ngClass]="{ active: selectedCategory === 'contact' }"
+          >Contact Details</a
+        >
+        <a
+          mat-list-item
+          (click)="navigateTo('skills')"
+          [ngClass]="{ active: selectedCategory === 'skills' }"
+          >Skills</a
+        >
+        <a
+          mat-list-item
+          (click)="navigateTo('job')"
+          [ngClass]="{ active: selectedCategory === 'job' }"
+          >Job Details</a
+        >
+      </mat-nav-list>
+    </div>
+  </div>
+  <div class="right-column">
+    <div class="content">
+      <!-- Display editable fields based on selected category -->
+      <div *ngIf="selectedCategory === 'personal'">
+        <div class="form-column">
+          <mat-form-field>
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="employee.name" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Age</mat-label>
+            <input matInput type="number" [(ngModel)]="employee.age" />
+          </mat-form-field>
+          <!-- Add more personal data fields here -->
+        </div>
+      </div>
+
+      <div *ngIf="selectedCategory === 'contact'">
+        <div class="form-column">
+          <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input matInput [(ngModel)]="employee.email" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Phone</mat-label>
+            <input matInput [(ngModel)]="employee.phone" />
+          </mat-form-field>
+        </div>
+
+        <!-- Add more contact details fields here -->
+      </div>
+
+      <div *ngIf="selectedCategory === 'skills'">
+        <div class="form-column">
+          <mat-form-field>
+            <mat-label>Skills</mat-label>
+            <input matInput [(ngModel)]="employee.skills" />
+          </mat-form-field>
+        </div>
+        <!-- Add more skill-related fields here -->
+      </div>
+
+      <div *ngIf="selectedCategory === 'job'">
+        <div class="form-column">
+          <mat-form-field>
+            <mat-label>Position</mat-label>
+            <input matInput [(ngModel)]="employee.position" />
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Department</mat-label>
+            <input matInput [(ngModel)]="employee.department" />
+          </mat-form-field>
+        </div>
+        <!-- Add more job-related fields here -->
+      </div>
+    </div>
+  </div>
+</div>

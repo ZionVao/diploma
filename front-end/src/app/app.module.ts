@@ -22,6 +22,7 @@ import { CalendarModule, DateAdapter } from 'angular-calendar';
 import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { GoalSettingComponent } from './pages/goal-setting/goal-setting.component';
 import { RecruitmentComponent } from './pages/recruitment/recruitment.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RecruitmentComponent } from './pages/recruitment/recruitment.component'
     FilterMonthPipe,
     GoalSettingComponent,
     RecruitmentComponent,
+    ProfileComponent,
   ],
   imports: [
     CommonModule,
