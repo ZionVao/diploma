@@ -23,6 +23,11 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 import { GoalSettingComponent } from './pages/goal-setting/goal-setting.component';
 import { RecruitmentComponent } from './pages/recruitment/recruitment.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { LeaveComponent } from './pages/leave/leave.component';
+import { LeaveListComponent } from './pages/leave/leave-list/leave-list.component';
+import { MyLeaveComponent } from './pages/leave/my-leave/my-leave.component';
+import { ApplyLeaveComponent } from './pages/leave/apply-leave/apply-leave.component';
+import { AssignLeaveComponent } from './pages/leave/assign-leave/assign-leave.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { ProfileComponent } from './pages/profile/profile.component';
     GoalSettingComponent,
     RecruitmentComponent,
     ProfileComponent,
+    LeaveComponent,
+    LeaveListComponent,
+    MyLeaveComponent,
+    ApplyLeaveComponent,
+    AssignLeaveComponent,
   ],
   imports: [
     CommonModule,

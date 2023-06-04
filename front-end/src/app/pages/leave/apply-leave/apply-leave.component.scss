@@ -1,0 +1,10 @@
+.form-fields {
+  display: flex;
+  flex-direction: column;
+}
+
+.date-fields {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}

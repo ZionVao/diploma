@@ -1,0 +1,120 @@
+<!-- assign-leave.component.html -->
+
+<mat-card>
+  <!-- <mat-card-title>Assign Leave</mat-card-title> -->
+  <mat-card-content>
+    <form (ngSubmit)="submitForm()" [formGroup]="leaveForm">
+      <div class="form-fields">
+        <mat-form-field appearance="fill">
+          <mat-label>Employee Name</mat-label>
+          <input matInput formControlName="employeeName" required />
+          <mat-error *ngIf="leaveForm.get('employeeName')?.invalid"
+            >Employee Name is required.</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Leave Type</mat-label>
+          <mat-select formControlName="leaveType" required>
+            <mat-option value="annual">Annual Leave</mat-option>
+            <mat-option value="sick">Sick Leave</mat-option>
+            <mat-option value="maternity">Maternity Leave</mat-option>
+          </mat-select>
+          <mat-error *ngIf="leaveForm.get('leaveType')?.invalid"
+            >Leave Type is required.</mat-error
+          >
+        </mat-form-field>
+        <div class="date-fields">
+          <mat-form-field appearance="fill">
+            <mat-label>Start Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="startDatePicker"
+              formControlName="startDate"
+              required
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="startDatePicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #startDatePicker></mat-datepicker>
+            <mat-error *ngIf="leaveForm.get('startDate')?.invalid"
+              >Start Date is required.</mat-error
+            >
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>End Date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="endDatePicker"
+              formControlName="endDate"
+              required
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="endDatePicker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #endDatePicker></mat-datepicker>
+            <mat-error *ngIf="leaveForm.get('endDate')?.invalid">
+              <span *ngIf="leaveForm.get('endDate')?.errors?.['required']"
+                >End Date is required.</span
+              >
+              <span *ngIf="leaveForm.get('endDate')?.errors?.['invalidEndDate']"
+                >End Date must be greater than the Start Date.</span
+              >
+            </mat-error>
+          </mat-form-field>
+
+          <mat-form-field appearance="fill">
+            <mat-label>Partial Days</mat-label>
+            <mat-select formControlName="partialDays">
+              <mat-option *ngIf="!isSameDateRange()" value="all"
+                >All Days</mat-option
+              >
+              <mat-option *ngIf="isSameDateRange()" value="full"
+                >Full Day</mat-option
+              >
+              <mat-option *ngIf="isSameDateRange()" value="half-morning"
+                >Half Day - Morning</mat-option
+              >
+              <mat-option *ngIf="isSameDateRange()" value="half-afternoon"
+                >Half Day - Afternoon</mat-option
+              >
+            </mat-select>
+            <mat-error *ngIf="leaveForm.get('partialDays')?.invalid"
+              >Partial Days is required.</mat-error
+            >
+          </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="fill">
+          <mat-label>Reason</mat-label>
+          <textarea matInput formControlName="reason" required></textarea>
+          <mat-error *ngIf="leaveForm.get('reason')?.invalid"
+            >Reason is required.</mat-error
+          >
+        </mat-form-field>
+      </div>
+
+      <div class="button-group">
+        <button
+          mat-raised-button
+          color="primary"
+          type="submit"
+          [disabled]="leaveForm.invalid"
+        >
+          Assign Leave
+        </button>
+        <button
+          mat-raised-button
+          color="warn"
+          type="button"
+          (click)="resetForm()"
+        >
+          Reset
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

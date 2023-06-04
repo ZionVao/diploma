@@ -1,0 +1,22 @@
+<!-- <mat-tab-group>
+  <mat-tab label="Apply"> Content 1 </mat-tab>
+  <mat-tab label="My Leave"> Content 2 </mat-tab>
+  <mat-tab label="Leave List"> </mat-tab>
+  <mat-tab label="Assign Leave"> Content 4 </mat-tab>
+</mat-tab-group> -->
+
+<nav mat-tab-nav-bar [tabPanel]="tabPanel">
+  <a
+    mat-tab-link
+    *ngFor="let link of links"
+    (click)="activeLink = link.link"
+    [active]="activeLink == link.link"
+    routerLink="{{ link.link }}"
+  >
+    {{ link.lable }}
+  </a>
+  <!-- <a mat-tab-link disabled>Disabled Link</a> -->
+</nav>
+<mat-tab-nav-panel #tabPanel>
+  <router-outlet></router-outlet>
+</mat-tab-nav-panel>

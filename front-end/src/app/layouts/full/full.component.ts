@@ -65,6 +65,11 @@ export class FullComponent {
       menu: 'Vacations and Requests',
     },
     {
+      link: '/leave',
+      icon: 'cloud',
+      menu: 'Leave',
+    },
+    {
       link: '/time-tracking',
       icon: 'watch',
       menu: 'Time Tracking',
