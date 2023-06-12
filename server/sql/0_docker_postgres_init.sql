@@ -60,10 +60,9 @@ CREATE TABLE IF NOT EXISTS assigned_roles (
     employee_id UUID NOT NULL,
     roles role[] DEFAULT ARRAY['user']::role[],
     CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES employees (id),
-    CONSTRAINT fk_role_id FOREIGN KEY (role_id) REFERENCES roles (id),
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP,
-    PRIMARY KEY (employee_id, role_id)
+    PRIMARY KEY (employee_id)
 );
 
 CREATE TABLE IF NOT EXISTS training (
@@ -112,7 +111,7 @@ CREATE TABLE IF NOT EXISTS requested_days_off (
     start_time TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     end_time TIMESTAMP,
     description TEXT,
-    status denied DEFAULT 'pending',
+    status status DEFAULT 'pending',
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP
 );
@@ -167,4 +166,91 @@ CREATE TABLE IF NOT EXISTS project_teams (
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP,
     PRIMARY KEY (project_id, employee_id)
+);
+
+CREATE TABLE IF NOT EXISTS attendance_records (
+    id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
+    employee_id UUID NOT NULL,
+    punch_in_utc_time TIMESTAMP,
+    punch_out_utc_time TIMESTAMP,
+    note TEXT,
+    state VARCHAR(255) NOT NULL,
+    CONSTRAINT fk_employee_id FOREIGN KEY (employee_id) REFERENCES employees (id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS job_candidates (
+    id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
+    first_name VARCHAR(30),
+    middle_name VARCHAR(30),
+    last_name VARCHAR(30),
+    email VARCHAR(100),
+    contact_number VARCHAR(30),
+    status INTEGER,
+    comment TEXT,
+    cv_text_version TEXT,
+    keywords VARCHAR(255),
+    added_person UUID NOT NULL,
+    mode_of_application INTEGER,
+    CONSTRAINT fk_added_person FOREIGN KEY (added_person) REFERENCES employees (id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS job_candidate_attachments (
+    id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
+    candidate_id UUID NOT NULL,
+    file_name VARCHAR(255),
+    file_type VARCHAR(255),
+    file_size INTEGER,
+    file_content bytea,
+    attachment_type VARCHAR(255),
+    CONSTRAINT fk_candidate_id FOREIGN KEY (candidate_id) REFERENCES job_candidates (id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS job_vacancy (
+    id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
+    job_id UUID NOT NULL,
+    hiring_manager_id UUID NOT NULL,
+    name VARCHAR(100),
+    description text,
+    status INTEGER,
+    CONSTRAINT fk_job_id FOREIGN KEY (job_id) REFERENCES job_positions (id),
+    CONSTRAINT fk_jhiring_manager_id FOREIGN KEY (hiring_manager_id) REFERENCES employees (id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS job_candidate_vacancy (
+    candidate_id UUID NOT NULL,
+    vacancy_id UUID NOT NULL,
+    name VARCHAR(100),
+    description text,
+    no_of_positions INTEGER,
+    status INTEGER,
+    CONSTRAINT fk_candidate_id FOREIGN KEY (candidate_id) REFERENCES job_candidates (id),
+    CONSTRAINT fk_vacancy_id FOREIGN KEY (vacancy_id) REFERENCES job_vacancy (id),
+    PRIMARY KEY(candidate_id, vacancy_id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS candidate_history (
+    id UUID NOT NULL PRIMARY KEY DEFAULT uuid_generate_v4(),
+    candidate_id UUID NOT NULL,
+    vacancy_id UUID NOT NULL,
+    interview_id UUID NOT NULL,
+    action INTEGER,
+    performed_by UUID,
+    performed_date TIMESTAMP,
+    note TEXT,
+    CONSTRAINT fk_candidate_id FOREIGN KEY (candidate_id) REFERENCES job_candidates (id),
+    CONSTRAINT fk_vacancy_id FOREIGN KEY (vacancy_id) REFERENCES job_vacancy (id),
+    CONSTRAINT fk_interview_id FOREIGN KEY (interview_id) REFERENCES employees (id),
+    CONSTRAINT fk_performed_by FOREIGN KEY (performed_by) REFERENCES employees (id),
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP
 );
