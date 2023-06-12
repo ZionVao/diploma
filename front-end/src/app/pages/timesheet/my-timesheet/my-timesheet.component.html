@@ -1,0 +1,99 @@
+<div class="container">
+  <table mat-table [dataSource]="timesheetData" class="mat-elevation-z8">
+    <ng-container matColumnDef="project">
+      <mat-header-cell *matHeaderCellDef>Project</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-form-field appearance="outline">
+          <mat-label>Project</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let option of projectOptions"
+              [value]="option"
+              >{{ option.label }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="activity">
+      <mat-header-cell *matHeaderCellDef>Activity</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-form-field appearance="outline">
+          <mat-label>Activity</mat-label>
+          <mat-select>
+            <mat-option
+              *ngFor="let option of activityOptions"
+              [value]="option"
+              >{{ option.label }}</mat-option
+            >
+          </mat-select>
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="monday">
+      <mat-header-cell *matHeaderCellDef>Monday</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="row.monday" type="number" min="0" />
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="tuesday">
+      <mat-header-cell *matHeaderCellDef>Tuesday</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="row.tuesday" type="number" min="0" />
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="wednesday">
+      <mat-header-cell *matHeaderCellDef>Wednesday</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="row.wednesday" type="number" min="0" />
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="thursday">
+      <mat-header-cell *matHeaderCellDef>Thursday</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="row.thursday" type="number" min="0" />
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="friday">
+      <mat-header-cell *matHeaderCellDef>Friday</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <mat-form-field appearance="outline">
+          <input matInput [(ngModel)]="row.friday" type="number" min="0" />
+        </mat-form-field>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef> Actions</mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button
+          mat-icon-button
+          color="warn"
+          (click)="removeRow(timesheetData.indexOf(row))"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </table>
+
+  <button mat-flat-button color="primary" (click)="addRow()">Add Row</button>
+  <button mat-flat-button color="primary">Save</button>
+</div>

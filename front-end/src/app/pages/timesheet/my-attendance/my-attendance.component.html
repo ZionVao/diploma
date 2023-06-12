@@ -1,0 +1,104 @@
+<mat-card>
+  <mat-card-content>
+    <h2>Attendance</h2>
+    <form [formGroup]="attendanceForm" (ngSubmit)="punch()">
+      <!-- <mat-form-field>
+          <input matInput formControlName="employeeName" placeholder="Employee Name">
+        </mat-form-field> -->
+      <div class="form-fields">
+        <mat-form-field>
+          <input
+            matInput
+            [matDatepicker]="punchDatePicker"
+            placeholder="Punch In/Out Date"
+            formControlName="punchDate"
+          />
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="punchDatePicker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #punchDatePicker></mat-datepicker>
+          <mat-error *ngIf="attendanceForm.get('punchDate')?.invalid"
+            >Punch In/Out Date is required.</mat-error
+          >
+        </mat-form-field>
+        <mat-form-field>
+          <label>Punch In Time:</label>
+          <input
+            matInput
+            formControlName="punchInTime"
+            type="time"
+            aria-label="Punch In Time"
+            placeholder="HH:mm"
+          />
+
+          <mat-error *ngIf="attendanceForm.get('punchInTime')?.invalid"
+            >Punch In Time is required.</mat-error
+          >
+        </mat-form-field>
+
+        <mat-form-field>
+          <label>Punch Out Time:</label>
+          <input
+            matInput
+            formControlName="punchOutTime"
+            type="time"
+            aria-label="Punch Out Time"
+            placeholder="HH:mm"
+          />
+
+          <mat-error *ngIf="attendanceForm.get('punchOutTime')?.invalid">
+            <span
+              *ngIf="attendanceForm.get('punchOutTime')?.errors?.['required']"
+              >Punch Out Time is required.</span
+            >
+            <span
+              *ngIf="attendanceForm.get('punchOutTime')?.errors?.['invalidTimeOut']"
+              >Punch Out Time must be greater than the Punch In Time.</span
+            >
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button
+        mat-raised-button
+        color="primary"
+        type="submit"
+        [disabled]="attendanceForm.invalid"
+      >
+        Punch
+      </button>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<!-- attendance-records.component.html -->
+<table mat-table [dataSource]="attendanceData" class="mat-elevation-z8">
+  <!-- Column definitions -->
+
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef>Date</th>
+    <td mat-cell *matCellDef="let record">{{ record.date }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="totalDuration">
+    <th mat-header-cell *matHeaderCellDef>Total Duration (Hours)</th>
+    <td mat-cell *matCellDef="let record">{{ record.totalDuration }}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef>Actions</th>
+    <td mat-cell *matCellDef="let record">
+      <!-- Add your action buttons here -->
+      <button mat-icon-button color="primary" (click)="editRecord(record)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button color="warn" (click)="deleteRecord(record)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </td>
+  </ng-container>
+
+  <!-- Table rows -->
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let record; columns: displayedColumns"></tr>
+</table>

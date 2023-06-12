@@ -94,5 +94,10 @@ export class FullComponent {
       icon: 'clipboard',
       menu: 'TODO',
     },
+    {
+      link: '/settings',
+      icon: 'settings',
+      menu: 'Settings',
+    },
   ];
 }

@@ -14,37 +14,113 @@ import { LeaveListComponent } from './pages/leave/leave-list/leave-list.componen
 import { ApplyLeaveComponent } from './pages/leave/apply-leave/apply-leave.component';
 import { AssignLeaveComponent } from './pages/leave/assign-leave/assign-leave.component';
 import { MyLeaveComponent } from './pages/leave/my-leave/my-leave.component';
+import { TimesheetComponent } from './pages/timesheet/timesheet.component';
+import { MyTimesheetComponent } from './pages/timesheet/my-timesheet/my-timesheet.component';
+import { EmployeeTimesheetsComponent } from './pages/timesheet/employee-timesheets/employee-timesheets.component';
+import { EmployeeAttendanceComponent } from './pages/timesheet/employee-attendance/employee-attendance.component';
+import { MyAttendanceComponent } from './pages/timesheet/my-attendance/my-attendance.component';
+import { LoginComponent } from './pages/login/login.component';
+import { AuthGuard } from './shared/guards/auth.guard';
+import { Role } from './shared/models/role';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent },
+
   {
     path: '',
     component: FullComponent,
+    canActivate: [AuthGuard],
     children: [
-      { path: 'calendar', component: CalendarComponent },
+      {
+        path: 'calendar',
+        component: CalendarComponent,
+        data: { roles: [Role.Admin, Role.User, Role.Manager] },
+      },
       {
         path: 'employees',
         component: EmployeeListComponent,
+        data: { roles: [Role.Admin, Role.User, Role.Manager] },
       },
       {
         path: 'todo',
         component: TaskboardComponent,
+        data: { roles: [Role.Admin, Role.Manager, Role.User] },
       },
-      { path: 'vacations-and-requests', component: WorkerDaysOffComponent },
-      { path: 'okr', component: GoalSettingComponent },
-      { path: 'recruitment', component: RecruitmentComponent },
-      { path: 'profile', component: ProfileComponent },
+      {
+        path: 'vacations-and-requests',
+        component: WorkerDaysOffComponent,
+        data: { roles: [Role.Admin, Role.User, Role.Manager] },
+      },
+      {
+        path: 'okr',
+        component: GoalSettingComponent,
+        data: { roles: [Role.Admin, Role.User] },
+      },
+      {
+        path: 'recruitment',
+        component: RecruitmentComponent,
+        data: { roles: [Role.Admin, Role.Manager] },
+      },
+      {
+        path: 'profile',
+        component: ProfileComponent,
+        data: { roles: [Role.User, Role.Manager] },
+      },
       {
         path: 'leave',
         component: LeaveComponent,
         children: [
-          { path: 'apply', component: ApplyLeaveComponent },
-          { path: 'my-leave', component: MyLeaveComponent },
-          { path: 'leave-list', component: LeaveListComponent },
-          { path: 'assign-leave', component: AssignLeaveComponent },
+          {
+            path: 'apply',
+            component: ApplyLeaveComponent,
+            data: { roles: [Role.Manager, Role.User] },
+          },
+          {
+            path: 'my-leave',
+            component: MyLeaveComponent,
+            data: { roles: [Role.Manager, Role.User] },
+          },
+          {
+            path: 'leave-list',
+            component: LeaveListComponent,
+            data: { roles: [Role.Admin, Role.Manager] },
+          },
+          {
+            path: 'assign-leave',
+            component: AssignLeaveComponent,
+            data: { roles: [Role.Admin, Role.Manager] },
+          },
+        ],
+      },
+      {
+        path: 'time-tracking',
+        component: TimesheetComponent,
+        children: [
+          {
+            path: 'my-timesheet',
+            component: MyTimesheetComponent,
+            data: { roles: [Role.Manager, Role.User] },
+          },
+          {
+            path: 'employee-timesheets',
+            component: EmployeeTimesheetsComponent,
+            data: { roles: [Role.Manager, Role.Admin] },
+          },
+          {
+            path: 'my-attendance',
+            component: MyAttendanceComponent,
+            data: { roles: [Role.Manager, Role.User] },
+          },
+          {
+            path: 'employee-attendance',
+            component: EmployeeAttendanceComponent,
+            data: { roles: [Role.Manager, Role.Admin] },
+          },
         ],
       },
     ],
   },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

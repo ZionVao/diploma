@@ -45,6 +45,7 @@ import { ObserversModule } from '@angular/cdk/observers';
 import { PortalModule } from '@angular/cdk/portal';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @NgModule({
   exports: [
@@ -93,6 +94,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     PlatformModule,
     PortalModule,
     FlexLayoutModule,
+    NgxMaterialTimepickerModule,
   ],
 })
 export class FlexyModule {}

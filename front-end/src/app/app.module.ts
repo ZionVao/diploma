@@ -28,6 +28,16 @@ import { LeaveListComponent } from './pages/leave/leave-list/leave-list.componen
 import { MyLeaveComponent } from './pages/leave/my-leave/my-leave.component';
 import { ApplyLeaveComponent } from './pages/leave/apply-leave/apply-leave.component';
 import { AssignLeaveComponent } from './pages/leave/assign-leave/assign-leave.component';
+import { TimesheetComponent } from './pages/timesheet/timesheet.component';
+import { MyTimesheetComponent } from './pages/timesheet/my-timesheet/my-timesheet.component';
+import { EmployeeTimesheetsComponent } from './pages/timesheet/employee-timesheets/employee-timesheets.component';
+import { EmployeeAttendanceComponent } from './pages/timesheet/employee-attendance/employee-attendance.component';
+import { MyAttendanceComponent } from './pages/timesheet/my-attendance/my-attendance.component';
+import { LoginComponent } from './pages/login/login.component';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { ErrorInterceptor } from './shared/helpers/error.interceptor';
+import { fakeBackendProvider } from './shared/helpers/fake-backend';
+import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -47,9 +57,17 @@ import { AssignLeaveComponent } from './pages/leave/assign-leave/assign-leave.co
     MyLeaveComponent,
     ApplyLeaveComponent,
     AssignLeaveComponent,
+    TimesheetComponent,
+    MyTimesheetComponent,
+    EmployeeTimesheetsComponent,
+    EmployeeAttendanceComponent,
+    MyAttendanceComponent,
+    LoginComponent,
   ],
   imports: [
     CommonModule,
+    HttpClientModule,
+
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -63,7 +81,13 @@ import { AssignLeaveComponent } from './pages/leave/assign-leave/assign-leave.co
       useFactory: adapterFactory,
     }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
