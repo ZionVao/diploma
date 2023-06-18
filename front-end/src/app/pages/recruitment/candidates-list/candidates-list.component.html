@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-title>Candidates</mat-card-title>
+  <mat-card-content>
+    <div class="button-row">
+      <button
+        mat-raised-button
+        color="primary"
+        routerLink="/recruitment/add-candidate"
+      >
+        Add Candidate
+      </button>
+    </div>
+    <mat-table [dataSource]="candidates">
+      <ng-container matColumnDef="vacancy">
+        <mat-header-cell *matHeaderCellDef>Vacancy</mat-header-cell>
+        <mat-cell *matCellDef="let candidate">{{ candidate.vacancy }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Candidate</mat-header-cell>
+        <mat-cell *matCellDef="let candidate">{{ candidate.name }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="hiringManager">
+        <mat-header-cell *matHeaderCellDef>Hiring Manager</mat-header-cell>
+        <mat-cell *matCellDef="let candidate">{{
+          candidate.hiringManager
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="dateOfApplication">
+        <mat-header-cell *matHeaderCellDef>Date of Application</mat-header-cell>
+        <mat-cell *matCellDef="let candidate">{{
+          candidate.dateOfApplication
+        }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef>Status</mat-header-cell>
+        <mat-cell *matCellDef="let candidate">{{ candidate.status }}</mat-cell>
+      </ng-container>
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let candidate">
+          <button mat-icon-button color="info" aria-label="View">
+            <mat-icon>visibility</mat-icon>
+          </button>
+          <button mat-icon-button color="primary" aria-label="Edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>

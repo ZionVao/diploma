@@ -38,6 +38,11 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { ErrorInterceptor } from './shared/helpers/error.interceptor';
 import { fakeBackendProvider } from './shared/helpers/fake-backend';
 import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
+import { VacanciesListComponent } from './pages/recruitment/vacancies-list/vacancies-list.component';
+import { CandidatesListComponent } from './pages/recruitment/candidates-list/candidates-list.component';
+import { EditVacancyComponent } from './pages/recruitment/edit-vacancy/edit-vacancy.component';
+import { AddVacancyComponent } from './pages/recruitment/add-vacancy/add-vacancy.component';
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [
@@ -63,6 +68,10 @@ import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
     EmployeeAttendanceComponent,
     MyAttendanceComponent,
     LoginComponent,
+    VacanciesListComponent,
+    CandidatesListComponent,
+    EditVacancyComponent,
+    AddVacancyComponent,
   ],
   imports: [
     CommonModule,
@@ -80,6 +89,7 @@ import { JwtInterceptor } from './shared/helpers/jwt.interceptor';
       provide: DateAdapter,
       useFactory: adapterFactory,
     }),
+    QuillModule.forRoot(),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

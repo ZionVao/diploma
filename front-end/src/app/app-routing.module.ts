@@ -22,6 +22,10 @@ import { MyAttendanceComponent } from './pages/timesheet/my-attendance/my-attend
 import { LoginComponent } from './pages/login/login.component';
 import { AuthGuard } from './shared/guards/auth.guard';
 import { Role } from './shared/models/role';
+import { VacanciesListComponent } from './pages/recruitment/vacancies-list/vacancies-list.component';
+import { CandidatesListComponent } from './pages/recruitment/candidates-list/candidates-list.component';
+import { EditVacancyComponent } from './pages/recruitment/edit-vacancy/edit-vacancy.component';
+import { AddVacancyComponent } from './pages/recruitment/add-vacancy/add-vacancy.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -60,6 +64,19 @@ const routes: Routes = [
         path: 'recruitment',
         component: RecruitmentComponent,
         data: { roles: [Role.Admin, Role.Manager] },
+        children: [
+          {
+            path: 'vacancies',
+            component: VacanciesListComponent,
+          },
+          {
+            path: 'add-vacancy',
+            component: AddVacancyComponent,
+          },
+          { path: 'edit-vacancy/:id', component: EditVacancyComponent },
+
+          { path: 'candidates', component: CandidatesListComponent },
+        ],
       },
       {
         path: 'profile',

@@ -8,7 +8,7 @@ import {
 import { Observable } from 'rxjs';
 
 import { AuthService } from '../services/auth.service';
-import { environment } from 'environment/environment';
+import { environment } from '../../../environment/environment';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
