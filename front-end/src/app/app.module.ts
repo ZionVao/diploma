@@ -43,6 +43,10 @@ import { CandidatesListComponent } from './pages/recruitment/candidates-list/can
 import { EditVacancyComponent } from './pages/recruitment/edit-vacancy/edit-vacancy.component';
 import { AddVacancyComponent } from './pages/recruitment/add-vacancy/add-vacancy.component';
 import { QuillModule } from 'ngx-quill';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { CompanyComponent } from './pages/company/company.component';
+import { UserListComponent } from './pages/company/user-list/user-list.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
   declarations: [
@@ -72,6 +76,10 @@ import { QuillModule } from 'ngx-quill';
     CandidatesListComponent,
     EditVacancyComponent,
     AddVacancyComponent,
+    SettingsComponent,
+    CompanyComponent,
+    UserListComponent,
+    DashboardComponent,
   ],
   imports: [
     CommonModule,

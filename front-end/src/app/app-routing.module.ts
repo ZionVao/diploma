@@ -26,6 +26,10 @@ import { VacanciesListComponent } from './pages/recruitment/vacancies-list/vacan
 import { CandidatesListComponent } from './pages/recruitment/candidates-list/candidates-list.component';
 import { EditVacancyComponent } from './pages/recruitment/edit-vacancy/edit-vacancy.component';
 import { AddVacancyComponent } from './pages/recruitment/add-vacancy/add-vacancy.component';
+import { SettingsComponent } from './pages/settings/settings.component';
+import { CompanyComponent } from './pages/company/company.component';
+import { UserListComponent } from './pages/company/user-list/user-list.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -35,6 +39,7 @@ const routes: Routes = [
     component: FullComponent,
     canActivate: [AuthGuard],
     children: [
+      { path: '', component: DashboardComponent },
       {
         path: 'calendar',
         component: CalendarComponent,
@@ -76,6 +81,7 @@ const routes: Routes = [
           { path: 'edit-vacancy/:id', component: EditVacancyComponent },
 
           { path: 'candidates', component: CandidatesListComponent },
+          { path: '**', redirectTo: 'vacancies' },
         ],
       },
       {
@@ -107,6 +113,7 @@ const routes: Routes = [
             component: AssignLeaveComponent,
             data: { roles: [Role.Admin, Role.Manager] },
           },
+          { path: '**', redirectTo: 'apply' },
         ],
       },
       {
@@ -133,7 +140,25 @@ const routes: Routes = [
             component: EmployeeAttendanceComponent,
             data: { roles: [Role.Manager, Role.Admin] },
           },
+          { path: '**', redirectTo: 'my-timesheet' },
         ],
+      },
+      {
+        path: 'company',
+        component: CompanyComponent,
+        children: [
+          {
+            path: 'user-management',
+            component: UserListComponent,
+            data: { roles: [Role.Manager, Role.Admin] },
+          },
+          { path: '**', redirectTo: 'user-management' },
+        ],
+      },
+      {
+        path: 'settings',
+        component: SettingsComponent,
+        data: { roles: [Role.Admin, Role.Manager] },
       },
     ],
   },
