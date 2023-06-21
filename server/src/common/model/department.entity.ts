@@ -6,9 +6,9 @@ export class DepartmentModel extends BaseEntity {
   @Column({
     name: 'title',
     type: 'varchar',
-    length: 30,
-    nullable: false,
-    unique: true,
+    // length: 30,
+    // nullable: false,
+    // unique: true,
   })
   title: string;
 
@@ -18,11 +18,11 @@ export class DepartmentModel extends BaseEntity {
   @Column({ name: 'root_department_id', type: 'uuid', nullable: true })
   rootDepartmentId: string | null;
 
-  @ManyToOne(() => DepartmentModel, {
-    nullable: true,
-  })
-  @JoinTable({
-    joinColumn: { name: 'root_department_id', referencedColumnName: 'id' },
-  })
-  rootDepartment: DepartmentModel | null;
+  // @ManyToOne(() => DepartmentModel, {
+  //   nullable: true,
+  // })
+  // @JoinTable({
+  //   joinColumn: { name: 'root_department_id', referencedColumnName: 'id' },
+  // })
+  // rootDepartment: DepartmentModel | null;
 }

@@ -3,10 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
 
 interface Employee {
-  id: number;
   name: string;
   email: string;
   photoUrl: string;
+  jobPosition: string;
+  department: string;
   // Add more properties as needed
 }
 
@@ -18,130 +19,151 @@ interface Employee {
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [
     {
-      id: 1,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Software Engineer',
+      department: 'Engineering',
     },
     {
-      id: 2,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'Jane Smith',
+      email: 'janesmith@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'Marketing Manager',
+      department: 'Marketing',
     },
     {
-      id: 3,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'Mike Johnson',
+      email: 'mikejohnson@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Sales Representative',
+      department: 'Sales',
     },
     {
-      id: 4,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'Emily Davis',
+      email: 'emilydavis@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'Graphic Designer',
+      department: 'Creative',
     },
     {
-      id: 5,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'David Lee',
+      email: 'davidlee@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Product Manager',
+      department: 'Product',
     },
     {
-      id: 1,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'Julia Wilson',
+      email: 'juliawilson@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'HR Manager',
+      department: 'Human Resources',
     },
     {
-      id: 2,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'Michael Johnson',
+      email: 'michaeljonson@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'HR Manager',
+      department: 'Human Resources',
     },
     {
-      id: 3,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'Amy Roberts',
+      email: 'amyroberts@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'Finance Manager',
+      department: 'Finance',
     },
     {
-      id: 4,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'Daniel Brown',
+      email: 'danielbrown@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Operations Supervisor',
+      department: 'Operations',
     },
     {
-      id: 5,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
+      name: 'Jennifer Anderson',
+      email: 'jenniferanderson@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'Customer Support Specialist',
+      department: 'Customer Service',
+    },
+    {
+      name: 'Thomas Garcia',
+      email: 'thomasgarcia@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Quality Assurance Engineer',
+      department: 'Engineering',
+    },
+    {
+      name: 'Olivia Martinez',
+      email: 'oliviamartinez@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'Marketing Coordinator',
+      department: 'Marketing',
+    },
+    {
+      name: 'Robert Clark',
+      email: 'robertclark@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Sales Manager',
+      department: 'Sales',
+    },
+    {
+      name: 'Jessica Wright',
+      email: 'jessicawright@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'UX Designer',
+      department: 'Creative',
+    },
+    {
+      name: 'William Turner',
+      email: 'williamturner@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Product Owner',
+      department: 'Product',
+    },
+    {
+      name: 'Emma Hall',
+      email: 'emmahall@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'HR Manager',
+      department: 'Human Resources',
+    },
+    {
+      name: 'Christopher White',
+      email: 'christopherwhite@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Data Scientist',
+      department: 'Analytics',
+    },
+    {
+      name: 'Sophia Turner',
+      email: 'sophiaturner@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'Financial Analyst',
+      department: 'Finance',
+    },
+    {
+      name: 'Anthony Harris',
+      email: 'anthonyharris@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/700/700674.png',
+      jobPosition: 'Warehouse Manager',
+      department: 'Operations',
+    },
+    {
+      name: 'Grace Mitchell',
+      email: 'gracemitchell@example.com',
+      photoUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+      jobPosition: 'Technical Support Specialist',
+      department: 'Customer Service',
     },
   ];
-  filteredEmployees: Employee[] = [
-    {
-      id: 1,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 2,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 3,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 4,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 5,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 1,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 2,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 3,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 4,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-    {
-      id: 5,
-      name: 'Patrick',
-      email: 'mail@mail',
-      photoUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    },
-  ];
+
+  filteredEmployees: Employee[] = this.employees;
+
   currentPage = 1;
-  pageSize = 10;
+  pageSize = 9;
   searchQuery = '';
 
   // constructor(private http: HttpClient) {}

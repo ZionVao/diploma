@@ -7,14 +7,15 @@ import { Component } from '@angular/core';
 })
 export class ProfileComponent {
   employee: any = {
-    imageUrl: 'https://www.w3schools.com/w3css/img_avatar3.png',
-    name: 'John Doe',
-    age: 30,
-    email: 'johndoe@example.com',
+    imageUrl: 'https://cdn-icons-png.flaticon.com/512/4974/4974985.png',
+    name: 'Julia Wilson',
+    // age: 30,
+    birthday: '14-01-2002',
+    email: 'juliawilson@example.com',
     phone: '1234567890',
-    skills: 'Angular, TypeScript, HTML, CSS',
-    position: 'Software Developer',
-    department: 'Engineering',
+    skills: 'Performance Management, Employment Law',
+    position: 'HR Manager',
+    department: 'Human Resources',
   };
 
   selectedCategory: string = 'personal';

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 
 export interface Leave {
+  date: string;
   employeeName: string;
   leaveType: string;
   leaveBalance: number;
@@ -18,7 +19,7 @@ export interface Leave {
 })
 export class LeaveListComponent implements OnInit {
   displayedColumns: string[] = [
-    'select',
+    'date',
     'employeeName',
     'leaveType',
     'leaveBalance',
@@ -32,20 +33,22 @@ export class LeaveListComponent implements OnInit {
 
   leaves: Leave[] = [
     {
+      date: '2022-08-25 to 2022-08-26',
       employeeName: 'John Doe',
       leaveType: 'Vacation',
       leaveBalance: 10,
-      numberOfDays: 5,
-      status: 'Approved',
-      comments: 'Enjoy your time off',
+      numberOfDays: 2,
+      status: 'Pending',
+      comments: 'Vacation',
     },
     {
+      date: '21-06-2023 to 24-06-2023',
       employeeName: 'Jane Smith',
       leaveType: 'Sick Leave',
       leaveBalance: 15,
       numberOfDays: 3,
       status: 'Pending',
-      comments: 'Medical certificate required',
+      comments: 'Sick Leave',
     },
     // Add more leave objects as needed
   ];

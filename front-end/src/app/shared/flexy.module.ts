@@ -33,6 +33,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatNativeDateModule, MatRippleModule } from '@angular/material/core';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { MatTreeModule } from '@angular/material/tree';
 import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { CdkTableModule } from '@angular/cdk/table';
@@ -82,6 +83,7 @@ import { ScrollingModule } from '@angular/cdk/scrolling';
     MatToolbarModule,
     MatTooltipModule,
     MatNativeDateModule,
+    MatTreeModule,
     DragDropModule,
     CdkTableModule,
     ScrollingModule,

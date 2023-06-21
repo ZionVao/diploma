@@ -1,0 +1,46 @@
+<!-- shifts.component.html -->
+<mat-card>
+  <mat-card-content>
+    <div class="button-row">
+      <button mat-raised-button color="primary" routerLink="/company/add-user">
+        Add Work Shift
+      </button>
+    </div>
+    <mat-table [dataSource]="shiftsData">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-cell *matCellDef="let shift">{{ shift.name }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="from">
+        <mat-header-cell *matHeaderCellDef>From</mat-header-cell>
+        <mat-cell *matCellDef="let shift">{{ shift.from }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="to">
+        <mat-header-cell *matHeaderCellDef>To</mat-header-cell>
+        <mat-cell *matCellDef="let shift">{{ shift.to }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="hoursPerDay">
+        <mat-header-cell *matHeaderCellDef>Hours Per Day</mat-header-cell>
+        <mat-cell *matCellDef="let shift">{{ shift.hoursPerDay }}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let shift">
+          <button mat-icon-button color="primary" aria-label="Edit">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button mat-icon-button color="warn" aria-label="Delete">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+    </mat-table>
+  </mat-card-content>
+</mat-card>

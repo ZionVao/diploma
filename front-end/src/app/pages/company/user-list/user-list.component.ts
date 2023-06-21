@@ -9,20 +9,20 @@ export class UserListComponent implements OnInit {
   users = [
     {
       name: 'John Doe',
-      email: 'john@example.com',
+      email: 'johndoe@example.com',
       role: 'Manager',
       status: 'Enabled',
     },
     {
       name: 'Jane Smith',
-      email: 'jane@example.com',
+      email: 'janesmith@example.com',
       role: 'User',
       status: 'Disabled',
     },
     {
-      name: 'Bob Johnson',
-      email: 'bob@example.com',
-      role: 'User',
+      name: 'Julia Wilson',
+      email: 'juliawilson@example.com',
+      role: 'Manager, Admin',
       status: 'Enabled',
     },
     // Add more users here

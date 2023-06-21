@@ -49,20 +49,20 @@ export class FullComponent {
       icon: 'users',
       menu: 'Employees',
     },
+    // {
+    //   link: '/company-tree',
+    //   icon: 'git-commit',
+    //   menu: 'Tree',
+    // },
+    // {
+    //   link: '/okr',
+    //   icon: 'compass',
+    //   menu: 'OKR',
+    // },
     {
-      link: '/company-tree',
-      icon: 'git-commit',
-      menu: 'Tree',
-    },
-    {
-      link: '/okr',
-      icon: 'compass',
-      menu: 'OKR',
-    },
-    {
-      link: '/vacations-and-requests',
+      link: '/vacations-and-leaves',
       icon: 'coffee',
-      menu: 'Vacations and Requests',
+      menu: 'Vacations and Leaves',
     },
     {
       link: '/leave',
@@ -74,11 +74,11 @@ export class FullComponent {
       icon: 'watch',
       menu: 'Time Tracking',
     },
-    {
-      link: '/events',
-      icon: 'star',
-      menu: 'Events',
-    },
+    // {
+    //   link: '/events',
+    //   icon: 'star',
+    //   menu: 'Events',
+    // },
     {
       link: '/recruitment',
       icon: 'search',
@@ -89,15 +89,15 @@ export class FullComponent {
       icon: 'user',
       menu: 'Profile',
     },
-    {
-      link: '/todo',
-      icon: 'clipboard',
-      menu: 'TODO',
-    },
-    {
-      link: '/settings',
-      icon: 'settings',
-      menu: 'Settings',
-    },
+    // {
+    //   link: '/todo',
+    //   icon: 'clipboard',
+    //   menu: 'TODO',
+    // },
+    // {
+    //   link: '/settings',
+    //   icon: 'settings',
+    //   menu: 'Settings',
+    // },
   ];
 }

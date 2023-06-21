@@ -19,7 +19,7 @@
     <mat-card>
       <mat-card-header>
         <mat-card-title>{{ employee.name }}</mat-card-title>
-        <mat-card-subtitle>Web Designer</mat-card-subtitle>
+        <mat-card-subtitle>{{ employee.jobPosition }}</mat-card-subtitle>
       </mat-card-header>
       <mat-divider role="separator" aria-orientation="horizontal"></mat-divider>
       <mat-card-content>
@@ -32,8 +32,8 @@
           />
         </div>
         <div>
-          <p>ID: {{ employee.id }}</p>
-          <p>Email: {{ employee.email }}</p>
+          <p>{{ employee.email }}</p>
+          <p>Department: {{ employee.department }}</p>
 
           <!-- Add more employee information as desired -->
         </div>

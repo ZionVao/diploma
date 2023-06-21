@@ -7,7 +7,7 @@ import { UsersModule } from './users/users.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { configService } from './common/config/config.service';
 import { DataSource } from 'typeorm';
-import { EmployeeModel } from './common/model/employee.entity';
+import { DepartmentModule } from './department/department.module';
 
 @Module({
   imports: [
@@ -17,6 +17,7 @@ import { EmployeeModel } from './common/model/employee.entity';
     EmployeeModule,
     AuthModule,
     UsersModule,
+    DepartmentModule,
   ],
   controllers: [AppController],
   providers: [AppService],

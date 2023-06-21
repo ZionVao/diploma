@@ -1,4 +1,9 @@
-<h3>Dashboard</h3>
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span style="font-size: large">Dashboard</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
 <div class="dashboard">
   <mat-card>
     <mat-card-title>Quick Launch</mat-card-title>
@@ -22,7 +27,7 @@
             <span mat-line>Leave List</span>
           </div>
         </mat-grid-tile>
-        <mat-grid-tile>
+        <!-- <mat-grid-tile>
           <div class="launch-item">
             <button mat-icon-button>
               <mat-icon mat-list-icon>assignment</mat-icon>
@@ -36,6 +41,14 @@
               <mat-icon mat-list-icon>timer</mat-icon>
             </button>
             <span mat-line>My Timesheet</span>
+          </div>
+        </mat-grid-tile> -->
+        <mat-grid-tile>
+          <div class="launch-item">
+            <button mat-icon-button>
+              <mat-icon mat-list-icon>event</mat-icon>
+            </button>
+            <span mat-line>Calendar</span>
           </div>
         </mat-grid-tile>
       </mat-grid-list>

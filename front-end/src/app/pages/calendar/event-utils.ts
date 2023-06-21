@@ -7,18 +7,18 @@ export const INITIAL_EVENTS: EventInput[] = [
   {
     id: createEventId(),
     title: 'All-day event',
-    start: TODAY_STR,
+    start: new Date('2023-06-16').toISOString().replace(/T.*$/, ''),
   },
   {
     id: createEventId(),
-    title: 'Timed event',
-    start: TODAY_STR + 'T00:00:00',
-    end: TODAY_STR + 'T03:00:00',
+    title: 'Morning meeting',
+    start: TODAY_STR + 'T10:00:00',
+    end: TODAY_STR + 'T13:00:00',
   },
   {
     id: createEventId(),
-    title: 'Timed event',
-    start: TODAY_STR + 'T12:00:00',
+    title: 'Interview',
+    start: TODAY_STR + 'T14:00:00',
     end: TODAY_STR + 'T15:00:00',
   },
 ];

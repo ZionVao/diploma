@@ -5,6 +5,7 @@ import {
   Validators,
   AbstractControl,
 } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-apply-leave',
@@ -14,7 +15,7 @@ import {
 export class ApplyLeaveComponent implements OnInit {
   leaveForm!: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) {}
 
   ngOnInit() {
     this.leaveForm = this.formBuilder.group({
@@ -50,6 +51,7 @@ export class ApplyLeaveComponent implements OnInit {
     if (this.leaveForm.valid) {
       // Submit the form data to the server or perform necessary actions
       console.log(this.leaveForm.value);
+      this.router.navigate(['/leave/my-leave']);
     }
   }
 

@@ -14,7 +14,7 @@
             placeholder="Email"
           />
           <mat-error *ngIf="loginForm.get('username')?.invalid"
-            >Username is required.</mat-error
+            >Email is required.</mat-error
           >
         </mat-form-field>
       </p>
@@ -35,7 +35,7 @@
         <button color="primary" type="submit" mat-raised-button>Login</button>
       </div>
       <div *ngIf="loginForm.invalid && submitted" class="error-message">
-        Invalid username or password.
+        Invalid email or password.
       </div>
     </form>
   </mat-card-content>

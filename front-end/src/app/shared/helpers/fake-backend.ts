@@ -14,10 +14,10 @@ import { Role } from '../models/role';
 const users = [
   {
     id: 1,
-    username: 'admin',
+    username: 'juliawilson@example.com',
     password: 'admin',
-    firstName: 'Admin',
-    lastName: 'User',
+    firstName: 'juliawilson@example.com',
+    lastName: 'juliawilson@example.com',
     role: Role.Admin,
   },
   {

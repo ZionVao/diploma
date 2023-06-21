@@ -47,6 +47,11 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { UserListComponent } from './pages/company/user-list/user-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { JobTitlesComponent } from './pages/company/job-titles/job-titles.component';
+import { EmploymentStatusComponent } from './pages/company/employment-status/employment-status.component';
+import { ShiftsComponent } from './pages/company/shifts/shifts.component';
+import { OrganizationStructureComponent } from './pages/company/organization-structure/organization-structure.component';
+import { EmployeeAttendanceCalendarComponent } from './pages/employee-attendance-calendar/employee-attendance-calendar.component';
 
 @NgModule({
   declarations: [
@@ -80,6 +85,11 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
     CompanyComponent,
     UserListComponent,
     DashboardComponent,
+    JobTitlesComponent,
+    EmploymentStatusComponent,
+    ShiftsComponent,
+    OrganizationStructureComponent,
+    EmployeeAttendanceCalendarComponent,
   ],
   imports: [
     CommonModule,

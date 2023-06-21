@@ -1,0 +1,44 @@
+<mat-card>
+  <mat-card-content>
+    <div class="button-row">
+      <button mat-raised-button color="primary" routerLink="/company/add-user">
+        Add Employment Status
+      </button>
+    </div>
+    <table mat-table [dataSource]="dataSource">
+      <!-- Employment Status Column -->
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef>Employment Status</th>
+        <td mat-cell *matCellDef="let employmentStatus">
+          {{ employmentStatus.status }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef>Actions</th>
+        <td mat-cell *matCellDef="let jobTitle">
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="editJobTitle(jobTitle)"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="warn"
+            (click)="deleteJobTitle(jobTitle)"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Data Rows -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr
+        mat-row
+        *matRowDef="let employmentStatus; columns: displayedColumns"
+      ></tr>
+    </table> </mat-card-content
+></mat-card>

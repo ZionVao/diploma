@@ -30,6 +30,11 @@ import { SettingsComponent } from './pages/settings/settings.component';
 import { CompanyComponent } from './pages/company/company.component';
 import { UserListComponent } from './pages/company/user-list/user-list.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { JobTitlesComponent } from './pages/company/job-titles/job-titles.component';
+import { EmploymentStatusComponent } from './pages/company/employment-status/employment-status.component';
+import { ShiftsComponent } from './pages/company/shifts/shifts.component';
+import { OrganizationStructureComponent } from './pages/company/organization-structure/organization-structure.component';
+import { EmployeeAttendanceCalendarComponent } from './pages/employee-attendance-calendar/employee-attendance-calendar.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
@@ -50,21 +55,21 @@ const routes: Routes = [
         component: EmployeeListComponent,
         data: { roles: [Role.Admin, Role.User, Role.Manager] },
       },
+      // {
+      //   path: 'todo',
+      //   component: TaskboardComponent,
+      //   data: { roles: [Role.Admin, Role.Manager, Role.User] },
+      // },
       {
-        path: 'todo',
-        component: TaskboardComponent,
-        data: { roles: [Role.Admin, Role.Manager, Role.User] },
-      },
-      {
-        path: 'vacations-and-requests',
-        component: WorkerDaysOffComponent,
+        path: 'vacations-and-leaves',
+        component: EmployeeAttendanceCalendarComponent,
         data: { roles: [Role.Admin, Role.User, Role.Manager] },
       },
-      {
-        path: 'okr',
-        component: GoalSettingComponent,
-        data: { roles: [Role.Admin, Role.User] },
-      },
+      // {
+      //   path: 'okr',
+      //   component: GoalSettingComponent,
+      //   data: { roles: [Role.Admin, Role.User] },
+      // },
       {
         path: 'recruitment',
         component: RecruitmentComponent,
@@ -140,7 +145,7 @@ const routes: Routes = [
             component: EmployeeAttendanceComponent,
             data: { roles: [Role.Manager, Role.Admin] },
           },
-          { path: '**', redirectTo: 'my-timesheet' },
+          { path: '**', redirectTo: 'my-attendance' },
         ],
       },
       {
@@ -151,6 +156,13 @@ const routes: Routes = [
             path: 'user-management',
             component: UserListComponent,
             data: { roles: [Role.Manager, Role.Admin] },
+          },
+          { path: 'job', component: JobTitlesComponent },
+          { path: 'employment-status', component: EmploymentStatusComponent },
+          { path: 'work-shifts', component: ShiftsComponent },
+          {
+            path: 'organization-structure',
+            component: OrganizationStructureComponent,
           },
           { path: '**', redirectTo: 'user-management' },
         ],

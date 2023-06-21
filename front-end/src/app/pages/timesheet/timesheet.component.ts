@@ -10,8 +10,8 @@ export class TimesheetComponent implements OnInit {
   constructor(private router: Router) {}
 
   links = [
-    { link: 'my-timesheet', lable: 'My Timeshheet' },
-    { link: 'employee-timesheets', lable: 'Employee Timeshheet' },
+    // { link: 'my-timesheet', lable: 'My Timeshheet' },
+    // { link: 'employee-timesheets', lable: 'Employee Timeshheet' },
     { link: 'my-attendance', lable: 'My Attendance' },
     { link: 'employee-attendance', lable: 'Employee Attendance' },
   ];
